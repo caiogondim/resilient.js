@@ -1,4 +1,5 @@
 # Resilient.js
+<img src="https://raw.github.com/caiogondim/resilient.js/icon/icon.svg" alt="Resilient.js logo" align="right" />
 
 A script loader that tries to fetch the same module from differents CDNs.
 
@@ -19,7 +20,7 @@ In your `<script>` tag, use the data attributes `data-alt-src` and `data-module`
 <script
   src="https://code.jquery.com/jquery-2.1.3.min.js"
   data-module="jquery"
-  data-alt-src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js
+  data-alt-src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"
 ></script>
 ```
 
@@ -71,3 +72,7 @@ instance.off('eventName', ['moduleName1', 'moduleName2']);
 ```js
 instance.trigger('eventName', ['moduleName1', 'moduleName2']);
 ```
+
+## Credits
+
+- Icon by [Stephen Borengasser](http://thenounproject.com/term/resilient/38883/)
