@@ -32,6 +32,7 @@ resilient.on('load', ['jquery'], function() {
 ```
 
 If something goes wrong while loading a module, an `error` event will be fired.
+And another try to load the script will be made using the `data-alt-src`.
 
 ```js
 resilient.on('error', ['jquery'], function() {
