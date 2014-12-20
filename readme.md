@@ -1,5 +1,5 @@
 # Resilient.js
-<img src="https://raw.githubusercontent.com/caiogondim/resilient.js/master/icon/icon.svg" alt="Resilient.js logo" align="right" />
+<img src="https://raw.githubusercontent.com/caiogondim/resilient.js/master/icon/icon.png" alt="Resilient.js logo" align="right" />
 
 A script loader that tries to fetch the same module from differents CDNs.
 
