@@ -1,5 +1,5 @@
 # Resilient.js
-<img src="https://raw.github.com/caiogondim/resilient.js/icon/icon.svg" alt="Resilient.js logo" align="right" />
+<img src="https://raw.githubusercontent.com/caiogondim/resilient.js/master/icon/icon.svg" alt="Resilient.js logo" align="right" />
 
 A script loader that tries to fetch the same module from differents CDNs.
 
@@ -72,6 +72,18 @@ instance.off('eventName', ['moduleName1', 'moduleName2']);
 ```js
 instance.trigger('eventName', ['moduleName1', 'moduleName2']);
 ```
+
+
+## Events
+
+### `load`
+
+Triggered when a script tag was loaded.
+
+### `error`
+
+Triggered when there was an error loading a script.
+
 
 ## Credits
 
