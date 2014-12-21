@@ -1,7 +1,13 @@
 # Resilient.js
 <img src="https://raw.githubusercontent.com/caiogondim/resilient.js/master/icon/icon.png" alt="Resilient.js logo" align="right" width="200" />
 
-A script loader that tries to fetch the same module from differents CDNs.
+resilience
+> the capacity to recover quickly from difficulties; toughness.
+
+Resilient.js is a script loader proof-of-concept made to load a given JS file
+from different URLs. There is no perfect CDNs, and there are better CDNs for
+each country or continent. With that lib, we try to load a JS file from
+different CDNs, until we succesfully download the file.
 
 
 ## Usage
