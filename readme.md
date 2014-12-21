@@ -10,8 +10,10 @@ Resilient.js should be the first script to be loaded in your page.
 Instantiate it like so
 
 ```js
-var resilient = new Resilient();
-resilient.init();
+if (Resilient.isSupported()) {
+  var resilient = new Resilient();
+  resilient.init();
+}
 ```
 
 In your `<script>` tag, use the data attributes `data-alt-src` and `data-module`

@@ -14,6 +14,13 @@ var Resilient = (function() {
     this.eventCallbacks = {};
   }
 
+  // Static methods
+  // --------------
+
+  Resilient.isSupported = function() {
+    return ('MutationObserver' in window);
+  }
+
   Resilient.prototype.init = function(event) {
     this.mutationObserver = new MutationObserver(this.handleMutationEvent.bind(this));
     this.mutationObserver.observe(document.body, {

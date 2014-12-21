@@ -1,6 +1,9 @@
 <html>
 <head>
   <title>resilient.js</title>
+  
+</head>
+<body>
   <script>
     var Resilient = (function() {
       'use strict';
@@ -16,6 +19,13 @@
 
         this.mutationObserver;
         this.eventCallbacks = {};
+      }
+
+      // Static methods
+      // --------------
+
+      Resilient.isSupported = function() {
+        return ('MutationObserver' in window);
       }
 
       Resilient.prototype.init = function(event) {
@@ -136,9 +146,6 @@
         console.warn('Error loading module ' + moduleName + '. Retrying...');
       });
   </script>
-</head>
-<body>
-
   <script
     src="http://wronasdadaasdasdgurl.com/loremipsum.js"
     data-module="underscore"
@@ -150,8 +157,8 @@
   ></script>
   <script
     src="http://wrong-urlkajsdhaksjdhakjdsha.com"
-    data-module="ember"
-    data-alt-src="http://builds.emberjs.com/tags/v1.9.0/ember.min.js"
+    data-module="backbone"
+    data-alt-src="http://backbonejs.org/backbone.js"
   ></script>
   <script
     src="http://momentjs.com/downloads/moment.js"
