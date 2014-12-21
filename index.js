@@ -10,7 +10,7 @@ var Resilient = (function() {
     // Properties
     // ----------
 
-    this.mutationObserver;
+    this.mutationObserver = null;
     this.eventCallbacks = {};
   }
 
@@ -19,10 +19,13 @@ var Resilient = (function() {
 
   Resilient.isSupported = function() {
     return ('MutationObserver' in window);
-  }
+  };
 
+  // Init
+  // ----
+  
   Resilient.prototype.init = function(event) {
-    this.mutationObserver = new MutationObserver(this.handleMutationEvent.bind(this));
+    this.mutationObserver = new MutationObserver(handleMutationEvent.bind(this));
     this.mutationObserver.observe(document.body, {
       childList: true
     });
@@ -75,38 +78,41 @@ var Resilient = (function() {
     if (this.eventCallbacks[event][module]) {
       this.eventCallbacks[event][module].forEach(function(callback) {
         callback(module);
-      })
+      });
     }
     this.eventCallbacks[event]['*'].forEach(function(callback) {
       callback(module);
-    })
+    });
 
     return this;
-  }
+  };
 
   // Event handlers
   // --------------
 
-  Resilient.prototype.handleMutationEvent = function(mutations) {
+  function handleMutationEvent(mutations) {
+    /* jshint validthis: true */
     var self = this;
 
     mutations.forEach(function(mutation) {
       Array.prototype.forEach.call(mutation.addedNodes, function(addedNode) {
         if (addedNode.nodeName === 'SCRIPT') {
-          addedNode.addEventListener('load', handleScriptLoadEvent.bind(self))
-          addedNode.addEventListener('error', handleScriptErrorEvent.bind(self))
+          addedNode.addEventListener('load', handleScriptLoadEvent.bind(self));
+          addedNode.addEventListener('error', handleScriptErrorEvent.bind(self));
         }
-      })
+      });
     });
-  };
+  }
 
   function handleScriptLoadEvent(ev) {
+    /* jshint validthis: true */
     if (ev.target.dataset.module) {
       this.trigger('load', ev.target.dataset.module);
     }
   }
 
   function handleScriptErrorEvent(ev) {
+    /* jshint validthis: true */
     if (ev.target.dataset.module) {
       this.trigger('error', ev.target.dataset.module);
     }
